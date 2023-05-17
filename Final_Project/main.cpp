@@ -11,15 +11,24 @@ GLMmodel * lhand=NULL;
 GLMmodel * rfoot=NULL;
 GLMmodel * lfoot=NULL;
 int show[4]={0,1,0,0};
+int ID=0;
 void keyboard(unsigned char key,int x,int y){
-if(key=='0')show[0]=!show[0];
-if(key=='1')show[1]=!show[1];
-if(key=='2')show[2]=!show[2];
-if(key=='3')show[3]=!show[3];
-if(key=='4')show[4]=!show[4];
-if(key=='5')show[5]=!show[5];
-if(key=='6')show[6]=!show[6];
-if(key=='7')show[7]=!show[7];
+if (key=='0')ID=0;
+if (key=='1')ID=1;
+if (key=='2')ID=2;
+if (key=='3')ID=3;
+if (key=='4')ID=4;
+if (key=='5')ID=5;
+if (key=='6')ID=6;
+if (key=='7')ID=7;
+///if(key=='0')show[0]=!show[0];
+///if(key=='1')show[1]=!show[1];
+///if(key=='2')show[2]=!show[2];
+///if(key=='3')show[3]=!show[3];
+///if(key=='4')show[4]=!show[4];
+///if(key=='5')show[5]=!show[5];
+///if(key=='6')show[6]=!show[6];
+///if(key=='7')show[7]=!show[7];
 glutPostRedisplay();
 }
 
@@ -46,13 +55,30 @@ void display()
             rfoot=glmReadOBJ("model/rfoot.obj");
             lfoot=glmReadOBJ("model/lfoot.obj");
         }
+
+        if(ID==0)glColor3f(1,0,0);
+        else glColor3f(1,1,1);
         if(show[0])glmDraw(head,GLM_MATERIAL);
+        if(ID==1)glColor3f(1,0,0);
+        else glColor3f(1,1,1);
         if(show[1])glmDraw(body,GLM_MATERIAL);
+        if(ID==2)glColor3f(1,0,0);
+        else glColor3f(1,1,1);
         if(show[2])glmDraw(rhand,GLM_MATERIAL);
+        if(ID==3)glColor3f(1,0,0);
+        else glColor3f(1,1,1);
         if(show[3])glmDraw(rarm,GLM_MATERIAL);
+        if(ID==4)glColor3f(1,0,0);
+        else glColor3f(1,1,1);
         if(show[4])glmDraw(lhand,GLM_MATERIAL);
+        if(ID==5)glColor3f(1,0,0);
+        else glColor3f(1,1,1);
         if(show[5])glmDraw(larm,GLM_MATERIAL);
+        if(ID==6)glColor3f(1,0,0);
+        else glColor3f(1,1,1);
         if(show[6])glmDraw(rfoot,GLM_MATERIAL);
+        if(ID==7)glColor3f(1,0,0);
+        else glColor3f(1,1,1);
         if(show[7])glmDraw(lfoot,GLM_MATERIAL);
         glmDraw(body,GLM_MATERIAL);
     glPopMatrix();
